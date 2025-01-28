@@ -21,7 +21,7 @@ This step-by-step tutorial provides an accessible introduction to customizing (f
 
 ## Prerequisites
 
-Use this tutorial preferably in Google Colab, as the setup depends on the pre-installed packages of the Colab environment.
+Use this tutorial preferably in [Google Colab](https://colab.research.google.com/github/Stephan-Linzbach/Text-Classification-with-Pretrained-Language-Models/blob/main/textclassification_tutorial.ipynb), as the setup depends on the pre-installed packages of the Colab environment.
 
 ## Environment Setup
 
