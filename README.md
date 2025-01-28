@@ -65,3 +65,57 @@ To follow this tutorial, ensure the following:
 ### 6. Results
 - Understanding the classification report (precision, recall, F1-score, and accuracy).
 - Analyzing the model's performance on the test set.
+
+
+## Duration
+
+This tutorial will take approximately 1–2 hours, depending on the speed of your hardware.
+
+## Social Science Use Cases (Optional)
+
+This tutorial demonstrates how NLP can be applied to analyze textual data in the social sciences, such as sentiment analysis or categorizing survey responses.
+
+## Flow Diagram (Optional)
+
+The flow involves:
+
+1. Data preparation.
+2. Model configuration and initialization.
+3. Training and validation.
+4. Evaluation and result interpretation.
+
+## Sample Input and Output Data (Optional)
+
+### Input
+Example text from the dataset:
+```plaintext
+"I love this product!"
+```
+
+### Output
+Predicted label: `is_correct`
+
+## How to Use
+
+1. Clone the repository or download the notebook.
+2. Follow the steps sequentially in the notebook to preprocess data, fine-tune the model, and evaluate it.
+3. Modify hyperparameters or use a different dataset for custom tasks.
+
+## Conclusion
+
+This tutorial covers the end-to-end pipeline for text classification using fine-tuning of a pre-trained model. By following the steps, you will acquire the skills to apply similar techniques to your own datasets and tasks.
+
+## References
+
+- [Hugging Face Transformers Documentation](https://huggingface.co/transformers/)
+- [PyTorch Documentation](https://pytorch.org/)
+
+## Contact Details
+
+For questions or feedback, contact:
+
+- **Stephan Linzbach**: [Stephan.Linzbach@gesis.org](mailto:Stephan.Linzbach@gesis.org)
+
+## Acknowledgments
+
+This tutorial uses resources from the Hugging Face library and PyTorch framework.
