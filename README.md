@@ -2,32 +2,26 @@
 
 ## Learning Objectives
 
-By the end of this tutorial, you will be able to:
+This tutorial has the following learning objectives:
+-	Learning how to work with large language models (RoBERTa)
+-	Customizing (fine-tuning) a large language model for a text classification task in any language (100+ languages supported)
+-	Low-resource learning (with only few hundred examples) using the SAM optimizer
 
-- Define and implement a single-label classification task using a pre-trained language model.
-- Fine-tune a pre-trained model on a specific classification dataset.
-- Evaluate the model's performance using metrics such as precision, recall, and F1-score.
-- Interpret the results of a classification task.
 
 ## Description
 
-This tutorial demonstrates the process of fine-tuning a pre-trained language model (e.g., RoBERTa) for a text classification task. It covers the steps from defining the task, setting up the model, and fine-tuning, to evaluating the model on test data. The focus is on applying advanced techniques like learning rate scheduling and selective optimization for effective training.
+This step-by-step tutorial provides an accessible introduction to customizing (fine-tuning) a pre-trained multilingual language model (RoBERTa) for text classification tasks. It demonstrates how to use the model's existing knowledge to classify text accurately, even with a small set of labeled examples. It takes input as JSON files with text documents and their corresponding labels for training, validating and testing. It covers using specialized models for English, German, and French while employing XLM-RoBERTa for over 100 additional languages.
 
 ## Target Audience (Difficulty Level)
 
-This tutorial is intended for intermediate-level practitioners who have:
-
-- Familiarity with Python programming.
-- Basic knowledge of machine learning concepts.
-- Some experience with natural language processing (NLP) or Hugging Face Transformers.
+-	Social scientists willing to learn about using large language models with basic prior understanding of it
+-	Social scientists with expertise in large-language models, interested in fine-tuning for multiple languages from only few examples.
+-	Computer scientists interested in learning about how large-language models are used for social text classification.
+-	Advanced NLP researchers and professors looking for tutorials that can help their students in learning new topics.
 
 ## Prerequisites
 
-Before starting this tutorial, you should have:
-
-- Python programming experience.
-- Basic understanding of classification tasks and NLP.
-- Familiarity with PyTorch and Hugging Face's Transformers library.
+Use this tutorial preferably in Google Colab, as the setup depends on the pre-installed packages of the Colab environment.
 
 ## Environment Setup
 
@@ -36,64 +30,55 @@ To follow this tutorial, ensure the following:
 - Python >= 3.7 installed.
 - Install required libraries by running:
   ```bash
-  pip install torch transformers scikit-learn
+  pip install -r requirements.txt
   ```
 
 ## Tutorial Content
 
 ### 1. Introduction to the Task
 - Explanation of single-label classification and its applications.
-- Overview of the dataset and labels.
 
-### 2. Preprocessing the Data
-- Tokenizing text using a pre-trained tokenizer.
-- Converting labels to model-compatible formats.
+### 2. Preparation
+- Loading the data
+- Loading language-specific language model
 
-### 3. Setting Up the Model
-- Loading a pre-trained model (e.g., RoBERTa) for sequence classification.
-- Customizing the model configuration.
+### 3. Defining the Classification Task
+- Defining the way data points are classified.
+- Setting the number of different labels.
 
-### 4. Fine-tuning the Model
+### 4. Setting up the Model
 - Defining training parameters: batch size, learning rate, number of epochs.
-- Implementing the training loop with learning rate scheduling and optimizer setup.
+- Defining training infrastructure: optimizers, a learning rate scheduler, a model, and a tokenizer.
 
-### 5. Evaluation
+### 5. Training
+- Implementing the training loop with learning rate scheduling and optimizer setup.
+- Running the training and validation loop.
+- Load the best-performing model.
+
+### 6. Evaluation
 - Testing the model on unseen data.
 - Generating a classification report with metrics (precision, recall, F1-score).
 - Interpreting results and identifying potential improvements.
-
-### 6. Results
 - Understanding the classification report (precision, recall, F1-score, and accuracy).
 - Analyzing the model's performance on the test set.
 
 
 ## Duration
 
-This tutorial will take approximately 1–2 hours, depending on the speed of your hardware.
+This tutorial will take approximately 1–2 hours.
 
 ## Social Science Use Cases (Optional)
 
-This tutorial demonstrates how NLP can be applied to analyze textual data in the social sciences, such as sentiment analysis or categorizing survey responses.
+A social scientist studying social media behavior over time. A training set should be created that teaches the classification of the desired information: political-leaning, factualness of argument, emotionality, stance towards a topic etc.
 
 ## Flow Diagram (Optional)
 
 The flow involves:
 
-1. Data preparation.
+1. Preparation.
 2. Model configuration and initialization.
 3. Training and validation.
 4. Evaluation and result interpretation.
-
-## Sample Input and Output Data (Optional)
-
-### Input
-Example text from the dataset:
-```plaintext
-"I love this product!"
-```
-
-### Output
-Predicted label: `is_correct`
 
 ## How to Use
 
