@@ -67,11 +67,11 @@ To follow this tutorial, ensure the following:
 
 This tutorial will take approximately 1–2 hours.
 
-## Social Science Use Cases (Optional)
+## Social Science Use Cases 
 
 A social scientist studying social media behavior over time. A training set should be created that teaches the classification of the desired information: political-leaning, factualness of argument, emotionality, stance towards a topic etc.
 
-## Flow Diagram (Optional)
+## Flow Diagram 
 
 The flow involves:
 
