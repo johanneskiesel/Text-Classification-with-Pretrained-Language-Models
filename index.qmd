@@ -48,22 +48,108 @@ To follow this tutorial, ensure the following:
 ### 1. Introduction to the Task
 - Explanation of single-label classification and its applications.
 
-### 2. Preparation
+### 2. Data Preparation
 - Loading the data
 - Loading language-specific language model
+
+```{python preparation}
+language = input("Which language do you use? ('english', 'german', 'french') ")
+
+print(f"MMhhh interesting your data is written in {language}. Let's load a fitting PLM!")
+
+if language == 'english':
+  model_name = "roberta-base"
+elif language == 'german':
+  model_name = "benjamin/roberta-base-wechsel-german"
+elif language == 'french':
+  model_name = "camembert-base"
+else:
+  print(f"Seems like we have no model available for {language}.")
+  print("We will load a mulitlingual language model. It knows text from 100 languages.")
+  model_name = 'xlm-roberta-base'
+
+print(f"We loaded {model_name} for {language}.")
+
+# Output:
+# Which language do you use? ('english', 'german', 'french') english
+# MMhhh interesting your data is written in english. Let's load a fitting PLM!
+# We loaded roberta-base for english.
+```
+
+
 
 ### 3. Defining the Classification Task
 - Defining the way data points are classified.
 - Setting the number of different labels.
 
+```{python defining}
+# Prompt the user to select the classification type
+decision_type = input("Do you want to classify by 'choosing' or 'deciding'? ").strip().lower()
+
+# Validate the input
+assert decision_type in ['choosing', 'deciding'], "Invalid input! Please enter 'choosing' or 'deciding'."
+
+# Ensure the labels align with the selected classification type
+if decision_type == 'deciding':
+    assert isinstance(train['Labels'][0], list), (
+        "For 'deciding', labels should be a list (e.g., ['apple', 'banana'])."
+    )
+else:
+    assert not isinstance(train['Labels'][0], list), (
+        "For 'choosing', each label should be a single value (e.g., 'apple')."
+    )
+# Output:
+# Do you want to classify by 'choosing' or 'deciding'? choosing
+```
+
 ### 4. Setting up the Model
 - Defining training parameters: batch size, learning rate, number of epochs.
 - Defining training infrastructure: optimizers, a learning rate scheduler, a model, and a tokenizer.
+
+```{python setup}
+# Model configuration
+model_config = {'pretrained_model_name_or_path': model_name,
+                'num_labels': output_size,
+                'problem_type': objective,
+                'id2label': id2label,
+                'label2id': label2id}
+
+# Training Hyperparameters
+batch_size = 64
+lr = 1e-4
+num_epochs = 3
+warm_up_rate = 0.1
+num_training_steps = (len(train['Labels'])//batch_size)*num_epochs
+device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+```
 
 ### 5. Training
 - Implementing the training loop with learning rate scheduling and optimizer setup.
 - Running the training and validation loop.
 - Load the best-performing model.
+
+```{python training}
+for epoch in range(num_epochs): # Repeat num_epochs times
+
+  for batch_idx, batch in enumerate(train_dataloader): # Train the model on the batch
+    input_ids, attention_mask, y = batch[0].to(device), batch[1].to(device), batch[2].to(device)
+
+    output = model(input_ids, attention_mask, labels=y)
+    loss = output.loss
+    loss.backward()
+
+# Output:
+# Train: Epoch 2, Train step 4, Loss 0.09070442616939545, learning_rate 1.4303513272105057e-05
+#  Train: Epoch 2, Train step 5, Loss 0.0538533590734005, learning_rate 3.7138015365554833e-06
+# Train: Epoch 2, Train step 6, Loss 0.05279867351055145, learning_rate 0.0
+# Validation: Epoch 2, Train step 6, Loss 0.050605375319719315, old best/epoch .0882/1
+# **** END EPOCH 2 ****
+# **** FINISHED TRAINING FOR N=2 ****
+# BEST EPOCH: 2
+# BEST LOSS: 0.050605375319719315
+```
+
+
 
 ### 6. Evaluation
 - Testing the model on unseen data.
@@ -72,6 +158,21 @@ To follow this tutorial, ensure the following:
 - Understanding the classification report (precision, recall, F1-score, and accuracy).
 - Analyzing the model's performance on the test set.
 
+
+
+```{python evaluation}
+print(classification_report(test_y, y_pred, target_names=label2id.keys(), zero_division=True))
+
+# Output:
+#                precision    recall  f1-score   support
+#
+#   is_correct       1.00      0.00      0.00        64
+# is_incorrect       0.67      1.00      0.80       128
+#
+#     accuracy                           0.67       192
+#    macro avg       0.83      0.50      0.40       192
+# weighted avg       0.78      0.67      0.53       192
+```
 
 ## Duration
 
@@ -85,7 +186,7 @@ A social scientist studying social media behavior over time. A training set shou
 
 The flow involves:
 
-1. Preparation.
+1. Data Preparation.
 2. Model configuration and initialization.
 3. Training and validation.
 4. Evaluation and result interpretation.
