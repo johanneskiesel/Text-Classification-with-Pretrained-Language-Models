@@ -85,10 +85,17 @@ print(f"We loaded {model_name} for {language}.")
 ```
 # Prompt the user to select the classification type
 decision_type = "Do you want to classify by 'choosing' or 'deciding'? "
-
 # Validate the input
-decision_type in ['choosing', 'deciding'], otherwise "Invalid input! Please enter 'choosing' or 'deciding'."
-
+assert decision_type in ['choosing', 'deciding'], "Invalid input! Please enter 'choosing' or 'deciding'."
+# Ensure the labels align with the selected classification type
+if decision_type == 'deciding':
+    assert isinstance(train['Labels'][0], list), (
+        "For 'deciding', labels should be a list (e.g., ['apple', 'banana'])."
+    )
+else:
+    assert not isinstance(train['Labels'][0], list), (
+        "For 'choosing', each label should be a single value (e.g., 'apple')."
+    )
 # Output:
 # Do you want to classify by 'choosing' or 'deciding'? choosing
 ```
@@ -97,7 +104,7 @@ decision_type in ['choosing', 'deciding'], otherwise "Invalid input! Please ente
 - Defining training parameters: batch size, learning rate, number of epochs.
 - Defining training infrastructure: optimizers, a learning rate scheduler, a model, and a tokenizer.
 
-```{python setup}
+```
 # Model configuration
 model_config = {'pretrained_model_name_or_path': model_name,
                 'num_labels': output_size,
