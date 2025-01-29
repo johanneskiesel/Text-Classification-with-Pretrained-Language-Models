@@ -53,7 +53,7 @@ To follow this tutorial, ensure the following:
 - Loading language-specific language model
 
 ```{python preparation}
-language = input("Which language do you use? ('english', 'german', 'french') ")
+language = "Which language do you use? ('english', 'german', 'french') "
 
 print(f"MMhhh interesting your data is written in {language}. Let's load a fitting PLM!")
 
@@ -84,7 +84,7 @@ print(f"We loaded {model_name} for {language}.")
 
 ```{python defining}
 # Prompt the user to select the classification type
-decision_type = input("Do you want to classify by 'choosing' or 'deciding'? ").strip().lower()
+decision_type = "Do you want to classify by 'choosing' or 'deciding'? "
 
 # Validate the input
 assert decision_type in ['choosing', 'deciding'], "Invalid input! Please enter 'choosing' or 'deciding'."
