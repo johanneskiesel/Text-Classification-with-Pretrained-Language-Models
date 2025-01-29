@@ -82,7 +82,7 @@ print(f"We loaded {model_name} for {language}.")
 - Defining the way data points are classified.
 - Setting the number of different labels.
 
-```{python defining}
+```
 # Prompt the user to select the classification type
 decision_type = "Do you want to classify by 'choosing' or 'deciding'? "
 
