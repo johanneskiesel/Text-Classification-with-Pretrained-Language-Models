@@ -1,5 +1,5 @@
 ---
-title:  Text Classification with Pretrained Language Models Tutorial
+title:  Low-Resource Multilingual Text Classification with Pretrained Language Models Tutorial
 author: Stephan Linzbach (GESIS)
 bibliography: references.bib
 csl: apa.csl
@@ -10,30 +10,31 @@ format:
 
 # Text Classification Tutorial
 
-## Learning Objectives
+## 1) Learning Objectives
 
 This tutorial has the following learning objectives:
 -	Learning how to work with large language models (RoBERTa)
 -	Customizing (fine-tuning) a large language model for a text classification task in any language (100+ languages supported)
--	Low-resource learning (with only few hundred examples) using the SAM optimizer
+-	Low-resource learning (with only a few hundred examples) using the SAM optimizer
+- Multi-label and Multi-output text classification
 
 
-## Description
+## 2) Description
 
 This step-by-step tutorial provides an accessible introduction to customizing (fine-tuning) a pre-trained multilingual language model (RoBERTa) for text classification tasks. It demonstrates how to use the model's existing knowledge to classify text accurately, even with a small set of labeled examples. It takes input as JSON files with text documents and their corresponding labels for training, validating and testing. It covers using specialized models for English, German, and French while employing XLM-RoBERTa for over 100 additional languages.
 
-## Target Audience (Difficulty Level)
+## 3) Target Audience (Difficulty Level)
 
 -	Social scientists willing to learn about using large language models with basic prior understanding of it
 -	Social scientists with expertise in large-language models, interested in fine-tuning for multiple languages from only few examples.
 -	Computer scientists interested in learning about how large-language models are used for social text classification.
 -	Advanced NLP researchers and professors looking for tutorials that can help their students in learning new topics.
 
-## Prerequisites
+## 4) Prerequisites
 
 Use this tutorial preferably in [Google Colab](https://colab.research.google.com/github/Stephan-Linzbach/Text-Classification-with-Pretrained-Language-Models/blob/main/textclassification_tutorial.ipynb), as the setup depends on the pre-installed packages of the Colab environment.
 
-## Environment Setup
+## 5) Environment Setup
 
 To follow this tutorial, ensure the following:
 
@@ -43,12 +44,12 @@ To follow this tutorial, ensure the following:
   pip install -r requirements.txt
   ```
 
-## Tutorial Content
+## 6) Tutorial Content
 
-### 1. Introduction to the Task
+**1. Introduction to the Task**
 - Explanation of single-label classification and its applications.
 
-### 2. Data Preparation
+**2. Data Preparation**
 - Loading the data
 - Loading language-specific language model
 
@@ -78,7 +79,7 @@ print(f"We loaded {model_name} for {language}.")
 
 
 
-### 3. Defining the Classification Task
+**3. Defining the Classification Task**
 - Defining the way data points are classified.
 - Setting the number of different labels.
 
@@ -100,7 +101,7 @@ else:
 # Do you want to classify by 'choosing' or 'deciding'? choosing
 ```
 
-### 4. Setting up the Model
+**4. Setting up the Model**
 - Defining training parameters: batch size, learning rate, number of epochs.
 - Defining training infrastructure: optimizers, a learning rate scheduler, a model, and a tokenizer.
 
@@ -121,7 +122,7 @@ num_training_steps = (len(train['Labels'])//batch_size)*num_epochs
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 ```
 
-### 5. Training
+**5. Training**
 - Implementing the training loop with learning rate scheduling and optimizer setup.
 - Running the training and validation loop.
 - Load the best-performing model.
@@ -149,7 +150,7 @@ for epoch in range(num_epochs): # Repeat num_epochs times
 
 
 
-### 6. Evaluation
+**6. Evaluation**
 - Testing the model on unseen data.
 - Generating a classification report with metrics (precision, recall, F1-score).
 - Interpreting results and identifying potential improvements.
@@ -172,15 +173,15 @@ print(classification_report(test_y, y_pred, target_names=label2id.keys(), zero_d
 # weighted avg       0.78      0.67      0.53       192
 ```
 
-## Duration
+## 7) Duration
 
 This tutorial will take approximately 1–2 hours.
 
-## Social Science Use Cases 
+## 8) Social Science Use Cases 
 
 A social scientist studying social media behavior over time. A training set should be created that teaches the classification of the desired information: political-leaning, factualness of argument, emotionality, stance towards a topic etc.
 
-## Flow Diagram 
+## 9) Flow Diagram 
 
 The flow involves:
 
@@ -189,17 +190,17 @@ The flow involves:
 3. Training and validation.
 4. Evaluation and result interpretation.
 
-## How to Use
+## 10) How to Use
 
 1. Clone the repository or download the notebook.
 2. Follow the steps sequentially in the notebook to preprocess data, fine-tune the model, and evaluate it.
 3. Modify hyperparameters or use a different dataset for custom tasks.
 
-## Conclusion
+## 11) Conclusion
 
 This tutorial covers the end-to-end pipeline for text classification using fine-tuning of a pre-trained model. By following the steps, you will acquire the skills to apply similar techniques to your own datasets and tasks.
 
-## References
+## 12) References
 
 Conneau, A. (2019). Unsupervised cross-lingual representation learning at scale. arXiv preprint arXiv:1911.02116.
 Liu, Y. (2019). Roberta: A robustly optimized bert pretraining approach. arXiv preprint arXiv:1907.11692, 364.
@@ -207,7 +208,7 @@ Martin, L., Muller, B., Suárez, P. J. O., Dupont, Y., Romary, L., de La Clerger
 Minixhofer, B., Paischer, F., & Rekabsaz, N. (2021). WECHSEL: Effective initialization of subword embeddings for cross-lingual transfer of monolingual language models. arXiv preprint arXiv:2112.06598.
 Foret, P., Kleiner, A., Mobahi, H., & Neyshabur, B. (2020). Sharpness-aware minimization for efficiently improving generalization. arXiv preprint arXiv:2010.01412.
 
-## Contact Details
+## 13) Contact Details
 
 For questions or feedback, contact:
 
