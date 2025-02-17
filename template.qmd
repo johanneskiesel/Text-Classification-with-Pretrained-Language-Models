@@ -1,5 +1,5 @@
 ---
-title: Template
+title: Low-Resource Multilingual Text Classification with Pretrained Language Models
 author:
   - name:
       given: Stephan
@@ -25,6 +25,7 @@ This tutorial has the following learning objectives:
     Learning how to work with large language models (RoBERTa)
     Customizing (fine-tuning) a large language model for a text classification task in any language (100+ languages supported)
     Low-resource learning (with only a few hundred examples) using the SAM optimizer
+    Teaching the different classification targets like multi-label classification and multi-output classification
 
 # Target audience
 
