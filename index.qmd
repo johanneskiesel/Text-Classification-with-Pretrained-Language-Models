@@ -179,8 +179,40 @@ This tutorial will take approximately 1–2 hours.
 
 ## 8) Social Science Use Cases 
 
-A social scientist studying social media behavior over time. A training set should be created that teaches the classification of the desired information: political-leaning, factualness of argument, emotionality, stance towards a topic etc.
+**Stance Detection on Newspaper Articles**
 
+Use Case:
+	Imagine you want to understand the different arguments to defend a negative stance towards a specific political party.
+Method Application:
+	Create a training dataset that contains news articles that are 'Against', 'In Favor', or 'Unconnected' to the political party in question.
+	You can now use the tutorial to learn how to train a model to learn the labels you have decided.
+	With this model, you can categorize a big dataset automatically. 
+	Now you can analyze only those articles that are marked as 'Against' by the model to understand the arguments used to argue against the specific political party.
+
+
+**Topic Classification for Social Science Survey Questions**
+
+Use Case:
+	Imagine you want to group questions by their topic to subsequently group the answers into more conclusive insights than just the independent answers.
+Method Application:
+	Think about a taxonomy of topics that is interesting to your analysis.
+	Create a training dataset that contains a small fraction of the questions that you are interested in.
+	Label the questions with the topic you associate with them.
+	In the best case, several people perform this same task (Maybe ChatGPT can help you as well).
+	Next, you can train the model using the tutorial to predict your topic given the associated question.
+	With the fitted model you can now label all questions.
+	
+**Emotion Detection in Social Media Posts**
+
+Use Case:
+	Imagine you want to understand the topics and writing styles associated with a specific topic.
+Method Application:
+	If you have a large dataset of social media posts you can use the smileys as indication of the emotion mentioned in the post.
+	Label each of the social media posts with the smiley used in it.
+	Train a model to predict the emoji from the text - make sure to remove the emoji from the training data.
+	Now you can apply this to all text even those without emojis.
+	Choose the emoji that best describes the emotion you are interested in.
+	Now you can focus your analysis on the posts that your model associates with the chosen emoji.
 ## 9) Flow Diagram 
 
 The flow involves:
