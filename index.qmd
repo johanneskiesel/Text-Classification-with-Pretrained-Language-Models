@@ -1,5 +1,5 @@
 ---
-title:  Low-Resource Multilingual Text Classification with Pretrained Language Models Tutorial
+title:  Fine-tuning (or customization) a LLM for text classification with small data
 author: Stephan Linzbach (GESIS)
 bibliography: references.bib
 csl: apa.csl
