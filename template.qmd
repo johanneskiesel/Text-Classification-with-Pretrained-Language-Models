@@ -18,7 +18,7 @@ format:
 set.seed(721831)
 ```
 
-## Learning Objectives
+# Learning Objectives
 
 This tutorial has the following learning objectives:
 
@@ -26,7 +26,7 @@ This tutorial has the following learning objectives:
     Customizing (fine-tuning) a large language model for a text classification task in any language (100+ languages supported)
     Low-resource learning (with only a few hundred examples) using the SAM optimizer
 
-## Target audience
+# Target audience
 
 
     Social scientists are willing to learn about using large language models with a basic prior understanding of it
@@ -34,11 +34,11 @@ This tutorial has the following learning objectives:
     Computer scientists are interested in learning about how large-language models are used for social text classification.
     Advanced NLP researchers and professors looking for tutorials that can help their students in learning new topics.
 
-## Duration
+# Duration
 
 Around 60 minutes
 
-## Social Science Usecase(s)
+# Social Science Usecase(s)
 
 ## Stance Detection on Newspaper Articles
 
