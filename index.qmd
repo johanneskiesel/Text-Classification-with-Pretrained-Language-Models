@@ -213,6 +213,7 @@ Method Application:
 	Now you can apply this to all text even those without emojis.
 	Choose the emoji that best describes the emotion you are interested in.
 	Now you can focus your analysis on the posts that your model associates with the chosen emoji.
+
 ## 9) Flow Diagram 
 
 The flow involves:
