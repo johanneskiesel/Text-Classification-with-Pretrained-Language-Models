@@ -62,6 +62,8 @@ A social scientist studying social media behavior over time. A training set shou
 This tutorial covers the end-to-end pipeline for text classification using fine-tuning of a pre-trained model. By following the steps, you will acquire the skills to apply similar techniques to your own datasets and tasks.
 
 ## References
+
+## Additional Resources
 - [Hugging Face Transformers Documentation](https://huggingface.co/transformers/)
 - [PyTorch Documentation](https://pytorch.org/)
 
