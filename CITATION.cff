@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Linzbach
+    given-names: Stephan
+    orcid: 0009-0009-6955-2368
+title: "A Step-By-Step Guide to Text Classification by Fine-tuning Large Language Model (RoBERTa)"
+version: 1.0
+identifiers:
+  - type: 
+    value: 
+date-released: 2025-02-27
