@@ -59,7 +59,7 @@ A social scientist studying social media behavior over time. A training set shou
 5. For custom tasks: Modify hyperparameters as needed, change dataset in the notebook or link to external file and re-execute the notebook cells (step 4)
 
 ## Conclusion
-This tutorial covers the end-to-end pipeline for text classification using fine-tuning of a pre-trained model. By following the steps, you will acquire the skills to apply similar techniques to your own datasets and tasks.
+This tutorial covers the end-to-end pipeline for single-label text classification using fine-tuning of a pre-trained LLM (RoBERTa) model. By following these steps, you will acquire the skills to apply use and fine-tune LLMs models for other tasks and datasets.
 
 ## References
 
