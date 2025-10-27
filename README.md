@@ -1,16 +1,6 @@
 # A Step-By-Step Guide to Text Classification by Fine-tuning Large Language Model (RoBERTa)
 
-To follow this tutorial, ensure the following:
-- Python >= 3.7 installed.
-- Install required libraries by running:
+To take this tutorial we recommend to use an environment with access to a GPU with at least 16 GB VRAM, like Google Colaboratory. See the [Methods Hub page](https://doi.org/10.71627/Text-Classification-with-Pretrained-Language-Model) for links to open the tutorial in supported online environments.
 
-  ```bash
-  pip install -r binder/requirements.txt
-  ```
+To take this tutorial on a local machine, you need to have Python 3.7 or above and Jupyter notebooks installed. Then open the [textclassification_tutorial.ipynb notebook](textclassification_tutorial.ipynb) in the Jupyter web interface.
 
-1. Clone the repository or download the notebook.
-2. Set up the tutorial working environment (as explained in Environment Setup section)
-3. Open the notebook [textclassification_tutorial.ipynb](textclassification_tutorial.ipynb)
-4. Execute the cells sequentially to preprocess data, fine-tune the model, and perform evaluations.
-
-The tutorial also runs with [Google Colab](https://colab.research.google.com/github/Stephan-Linzbach/Text-Classification-with-Pretrained-Language-Models/blob/main/textclassification_tutorial.ipynb).
